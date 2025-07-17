@@ -52,13 +52,16 @@
   </form>
 
   <script>
-// VC METHOD form submit
 document.getElementById('vcForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const feykLink = document.getElementById('vcLink').value.trim();
   if (feykLink) {
     const encodedLink = encodeURIComponent(feykLink);
-    window.location.href = `voice/index.html?link=${encodedLink}`;
+    const url = `voice/index.html?link=${encodedLink}`;
+    alert("Redirecting to: " + url);  // <-- debug alert
+    window.location.href = url;
+  } else {
+    alert("Please enter a link.");
   }
 });
   </script>
