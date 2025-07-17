@@ -52,11 +52,15 @@
   </form>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const link = params.get("link");
-     window.location.href = link;
-
-    }
+// VC METHOD form submit
+document.getElementById('vcForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const feykLink = document.getElementById('vcLink').value.trim();
+  if (feykLink) {
+    const encodedLink = encodeURIComponent(feykLink);
+    window.location.href = `voice/index.html?link=${encodedLink}`;
+  }
+});
   </script>
 
 </body>
